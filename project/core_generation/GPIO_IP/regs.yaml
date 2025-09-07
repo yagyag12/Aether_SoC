@@ -1,0 +1,50 @@
+regmap:
+-   name: GPIO_DATA
+    description: General Purpose Input Output Data Register
+    address: 0
+    bitfields:
+    -   name: LED
+        description: Built-in Output LEDs
+        reset: 0
+        width: 4
+        lsb: 0
+        access: wo
+        hardware: o
+        enums: []
+    -   name: SW
+        description: Built-in Input Switches
+        reset: 0
+        width: 4
+        lsb: 4
+        access: ro
+        hardware: i
+        enums: []
+    -   name: GPIO_OUT
+        description: GPIO Pin Value if selected as OUTPUT
+        reset: 0
+        width: 12
+        lsb: 8
+        access: wo
+        hardware: o
+        enums: []
+    -   name: GPIO_IN
+        description: GPIO Pin Value if selected as INPUT
+        reset: 0
+        width: 12
+        lsb: 20
+        access: ro
+        hardware: i
+        enums: []
+
+-   name: GPIO_CTRL
+    description: General Purpose Input Output Control Register
+    address: 4
+    bitfields:
+    -   name: GPIO_DIR
+        description: GPIO Pin Direction
+        reset: 0
+        width: 12
+        lsb: 0
+        access: rw
+        hardware: o
+        enums: []

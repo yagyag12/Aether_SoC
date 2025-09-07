@@ -1,0 +1,37 @@
+[globcfg]
+base_address = 0
+data_width = 32
+address_width = 32
+register_reset = sync_neg
+address_increment = none
+address_alignment = data_width
+force_name_case = none
+regmap_path = regs.yaml
+
+[v_module]
+path = hw/timer_regs.v
+read_filler = 0
+interface = lb
+generator = Verilog
+
+
+[v_header]
+path = hw/timer_regs.vh
+prefix = TIMER
+generator = VerilogHeader
+
+
+[c_header]
+path = sw/timer_regs.h
+prefix = TIMER
+generator = CHeader
+
+[md_doc]
+path = doc/timer_regs.md
+title = Timer Registers
+print_images = True
+image_dir = md_img
+print_conventions = True
+generator = Markdown
+
+

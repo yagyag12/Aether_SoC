@@ -1,0 +1,37 @@
+[globcfg]
+base_address = 0
+data_width = 32
+address_width = 32
+register_reset = sync_pos
+address_increment = none
+address_alignment = data_width
+force_name_case = none
+regmap_path = regs.yaml
+
+[v_module]
+path = hw/uart_regs.v
+read_filler = 0
+interface = lb
+generator = Verilog
+
+
+[v_header]
+path = hw/uart_regs.vh
+prefix = UART
+generator = VerilogHeader
+
+
+[c_header]
+path = sw/uart_regs.h
+prefix = UART
+generator = CHeader
+
+[md_doc]
+path = doc/uart_regs.md
+title = UART Registers
+print_images = True
+image_dir = md_img
+print_conventions = True
+generator = Markdown
+
+

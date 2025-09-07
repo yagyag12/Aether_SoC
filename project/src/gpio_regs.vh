@@ -1,0 +1,50 @@
+// Created with Corsair v1.0.4
+
+`ifndef __GPIO_REGS_VH
+`define __GPIO_REGS_VH
+
+`define GPIO_BASE_ADDR 0
+`define GPIO_DATA_WIDTH 32
+`define GPIO_ADDR_WIDTH 32
+
+// GPIO_DATA - General Purpose Input Output Data Register
+`define GPIO_GPIO_DATA_ADDR 32'h0
+`define GPIO_GPIO_DATA_RESET 32'h0
+
+// GPIO_DATA.LED - Built-in Output LEDs
+`define GPIO_GPIO_DATA_LED_WIDTH 4
+`define GPIO_GPIO_DATA_LED_LSB 0
+`define GPIO_GPIO_DATA_LED_MASK 32'h0
+`define GPIO_GPIO_DATA_LED_RESET 4'h0
+
+// GPIO_DATA.SW - Built-in Input Switches
+`define GPIO_GPIO_DATA_SW_WIDTH 4
+`define GPIO_GPIO_DATA_SW_LSB 4
+`define GPIO_GPIO_DATA_SW_MASK 32'h0
+`define GPIO_GPIO_DATA_SW_RESET 4'h0
+
+// GPIO_DATA.GPIO_OUT - GPIO Pin Value if selected as OUTPUT
+`define GPIO_GPIO_DATA_GPIO_OUT_WIDTH 12
+`define GPIO_GPIO_DATA_GPIO_OUT_LSB 8
+`define GPIO_GPIO_DATA_GPIO_OUT_MASK 32'h0
+`define GPIO_GPIO_DATA_GPIO_OUT_RESET 12'h0
+
+// GPIO_DATA.GPIO_IN - GPIO Pin Value if selected as INPUT
+`define GPIO_GPIO_DATA_GPIO_IN_WIDTH 12
+`define GPIO_GPIO_DATA_GPIO_IN_LSB 20
+`define GPIO_GPIO_DATA_GPIO_IN_MASK 32'h0
+`define GPIO_GPIO_DATA_GPIO_IN_RESET 12'h0
+
+
+// GPIO_CTRL - General Purpose Input Output Control Register
+`define GPIO_GPIO_CTRL_ADDR 32'h4
+`define GPIO_GPIO_CTRL_RESET 32'h0
+
+// GPIO_CTRL.GPIO_DIR - GPIO Pin Direction
+`define GPIO_GPIO_CTRL_GPIO_DIR_WIDTH 12
+`define GPIO_GPIO_CTRL_GPIO_DIR_LSB 0
+`define GPIO_GPIO_CTRL_GPIO_DIR_MASK 32'h4
+`define GPIO_GPIO_CTRL_GPIO_DIR_RESET 12'h0
+
+
+`endif // __GPIO_REGS_VH

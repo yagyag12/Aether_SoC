@@ -1,0 +1,125 @@
+
+There are no discarded input sections
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+mem              0x00000000         0x00001000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+
+.text           0x00000000      0x754
+                0x00000000                        . = 0x0
+ *(.text.start)
+ .text.start    0x00000000       0x10 ./start.o
+                0x00000000                _start
+ *(.text*)
+ .text          0x00000010      0x2f8 ./gpio.o
+                0x00000010                setLED
+                0x00000048                clearLED
+                0x00000080                toggleLED
+                0x000000b8                readSwitch
+                0x000000e4                setIO
+                0x00000194                setOut
+                0x00000220                clearOut
+                0x000002b0                readInput
+ .text          0x00000308      0x10c ./spi.o
+                0x00000308                initSPI
+                0x00000330                confSPI
+                0x00000374                slaveSelect
+                0x000003a0                checkSPIStatus
+                0x000003ac                sendSPIData
+                0x000003d4                readSPIData
+                0x000003f8                spiTransfer
+ .text          0x00000414      0x11c ./timer.o
+                0x00000414                setDelayMili
+                0x00000478                setDelayMicro
+                0x000004cc                setPWM
+                0x00000518                stopPWM
+ .text          0x00000530      0x1e0 ./uart.o
+                0x00000530                startSerial
+                0x000005bc                stopSerial
+                0x000005c8                sendChar
+                0x000005fc                sendString
+                0x00000630                readChar
+                0x00000670                readString
+                0x000006e8                checkTX
+                0x000006fc                checkRX
+ .text          0x00000710       0x44 ./main.o
+                0x00000710                blinkLED_delay
+                0x00000744                main
+ .text          0x00000754        0x0 ./start.o
+                0x00000754                        . = ALIGN (0x4)
+
+.rodata         0x00000754        0x0
+                0x00000754                        . = ALIGN (0x4)
+ *(.rodata*)
+                0x00000754                        . = ALIGN (0x4)
+
+.data           0x00000754        0x0
+                0x00000754                        . = ALIGN (0x4)
+ *(.data*)
+ .data          0x00000754        0x0 ./gpio.o
+ .data          0x00000754        0x0 ./spi.o
+ .data          0x00000754        0x0 ./timer.o
+ .data          0x00000754        0x0 ./uart.o
+ .data          0x00000754        0x0 ./main.o
+ .data          0x00000754        0x0 ./start.o
+                0x00000754                        . = ALIGN (0x4)
+
+.bss            0x00000754        0x0
+                0x00000754                        . = ALIGN (0x4)
+ *(.bss*)
+ .bss           0x00000754        0x0 ./gpio.o
+ .bss           0x00000754        0x0 ./spi.o
+ .bss           0x00000754        0x0 ./timer.o
+ .bss           0x00000754        0x0 ./uart.o
+ .bss           0x00000754        0x0 ./main.o
+ .bss           0x00000754        0x0 ./start.o
+                0x00000754                        . = ALIGN (0x4)
+LOAD ./gpio.o
+LOAD ./spi.o
+LOAD ./timer.o
+LOAD ./uart.o
+LOAD ./main.o
+LOAD ./start.o
+LOAD /opt/riscv32i/lib/gcc/riscv32-unknown-elf/14.2.0/libgcc.a
+OUTPUT(firmware.elf elf32-littleriscv)
+
+.comment        0x00000000       0x19
+ .comment       0x00000000       0x19 ./gpio.o
+                                 0x1a (size before relaxing)
+ .comment       0x00000019       0x1a ./spi.o
+ .comment       0x00000019       0x1a ./timer.o
+ .comment       0x00000019       0x1a ./uart.o
+ .comment       0x00000019       0x1a ./main.o
+
+.note.GNU-stack
+                0x00000000        0x0
+ .note.GNU-stack
+                0x00000000        0x0 ./gpio.o
+ .note.GNU-stack
+                0x00000000        0x0 ./spi.o
+ .note.GNU-stack
+                0x00000000        0x0 ./timer.o
+ .note.GNU-stack
+                0x00000000        0x0 ./uart.o
+ .note.GNU-stack
+                0x00000000        0x0 ./main.o
+
+.riscv.attributes
+                0x00000000       0x1c
+ .riscv.attributes
+                0x00000000       0x1c ./gpio.o
+ .riscv.attributes
+                0x0000001c       0x1c ./spi.o
+ .riscv.attributes
+                0x00000038       0x1c ./timer.o
+ .riscv.attributes
+                0x00000054       0x1c ./uart.o
+ .riscv.attributes
+                0x00000070       0x1c ./main.o
+ .riscv.attributes
+                0x0000008c       0x1a ./start.o
