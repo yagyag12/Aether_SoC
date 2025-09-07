@@ -1,9 +1,9 @@
-\# Aether SoC
+# Aether SoC
 
 Aether SoC is an open-source RISC-V microcontroller. The design aims to provide a lightweight and easily extensible platform for embedded system development and applications.
 The system is built around a mutli-cycle RV32I processor, implementing the base RISC-V integer instruction set. It follows a Harvard memory architecture, meaning instruction and data memory are separated. The peripheral bus is a custom memory-mapped I/O (MMIO) Bus where all the peripheral connections along with the data memory (RAM) are integrated on the same bus, separated by address regions.
 
-\## Features
+## Features
 
 To support interaction with the external world, Aether SoC includes several configurable peripheral modules, including:
 •	8 kB of RAM
@@ -14,7 +14,7 @@ To support interaction with the external world, Aether SoC includes several conf
 •	A PWM-controlled output channels.
 •	An independent timer, designed primarily for delay generation and basic timing tasks.
 
-\## Design Philosophy
+## Design Philosophy
 
 The system operates at 50 MHz and has been fully implemented and tested on Digilent Zybo Z7 development board (Xilinx Zynq-7020 SoC). In addition, the design was successfully fabricated using the SkyWater 130 nm (Sky130 PDK) process within the OpenLane physical design flow.
 Aether SoC has been developed in a vision with minimalist, modular and configurable design, specifically targeting students and beginners.
